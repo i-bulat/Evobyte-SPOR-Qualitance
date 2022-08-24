@@ -1,0 +1,95 @@
+    <div class="column is-7 ml-6" id="account-list">
+        <div class="mt-5 mb-5 is-size-3 has-text-weight-bold">
+            <span>Create Product</span>
+        </div>
+        <form [formGroup]="productForm" (ngSubmit)="submitForm()" novalidate>
+            <div class="field is-horizontal is-left">
+                <div class="field-label is-normal">
+                    <label class="label has-text-centered">Name</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input maxlength="20" class="input has-text-centered form-control" type="text"
+                                placeholder="Name" formControlName="name">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal is-left">
+                <div class="field-label is-normal">
+                    <label class="label has-text-centered">Description</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <textarea rows="3" maxlength="50" class="textarea has-text-centered form-control"
+                                type="text" placeholder="Description" formControlName="description"></textarea>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal is-left">
+                <div class="field-label is-normal">
+                    <label class="label has-text-centered">Subcategory</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="select">
+                        <p class="control">
+                            <select formControlName="subCategory" class="form-control is-hover">
+                                <option *ngFor="let i of subCategory; let j = index"  
+                                [selected] = "j === 0"
+                                [value]="i.id">
+                                    {{i.name}}</option>
+                            </select>
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal is-left">
+                <div class="field-label is-normal">
+                    <label class="label has-text-centered">Image URL</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input maxlength="20" class="input has-text-centered form-control" type="text"
+                                placeholder="" formControlName="imageURL">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal is-left">
+                <div class="field-label is-normal">
+                    <label class="label has-text-centered">Price</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input maxlength="20" class="input has-text-centered form-control" type="text"
+                                placeholder="Price" formControlName="price">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal is-left">
+                <div class="field-label is-normal">
+                    <label class="label has-text-centered">Quantity</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input maxlength="20" class="input has-text-centered form-control" type="text"
+                                placeholder="Quantity" formControlName="quantity">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="container has-text-centered mb-6">
+                <button type="submit" class="button is-success">Create Product</button>
+                <button class="button is-link is-light" (click)="back($event)">Cancel</button>
+            </div>
+        </form>
+    </div>

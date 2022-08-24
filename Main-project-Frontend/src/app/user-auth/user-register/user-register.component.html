@@ -1,0 +1,95 @@
+<ng-template [ngIf]="needToConfirmRegistration === false" [ngIfElse]="confirmRegistration">
+  <div class="columns my-6 is-mobile is-centered">
+    <div class="column is-narrow">
+      <div class="has-text-centered">
+        <a routerLink="/">
+          <img src="https://www.seekpng.com/png/full/428-4289671_logo-e-commerce-good-e-commerce-logo.png" alt="bucMag"
+            width="350" />
+        </a>
+      </div>
+      <div class="box">
+        <div class="field">
+          <a href="">
+            <i class="fa-solid fa-angle-left"></i>
+            <span> Go back</span> </a>
+        </div>
+
+        <h1 class="title field is-size-4">Register</h1>
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+          <div class="control field">
+            <p class="control has-icons-left">
+              <input class="input" type="email" placeholder="Username" formControlName="username" />
+              <span class="icon is-small is-left">
+                <i class="fa-solid fa-face-smile"></i>
+              </span>
+            </p>
+
+          </div>
+          <div class="field">
+            <p class="control has-icons-left">
+              <input class="input" type="email" placeholder="Email" formControlName="email" />
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </p>
+          </div>
+          <div class="control field">
+            <p class="control has-icons-left">
+              <input class="input" type="email" placeholder="First Name" formControlName="first_name" />
+              <span class="icon is-small is-left">
+                <i class="fa-solid fa-user-check"></i>
+              </span>
+            </p>
+          </div>
+          <div class="control field">
+            <p class="control has-icons-left">
+              <input class="input" type="email" placeholder="Last Name" formControlName="last_name" />
+              <span class="icon is-small is-left">
+                <i class="fa-solid fa-face-smile"></i>
+              </span>
+            </p>
+
+          </div>
+          <div class="field">
+            <p class="control has-icons-left">
+              <input class="input" type="password" placeholder="Password" formControlName="password" />
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control has-icons-left">
+              <input class="input" type="password" placeholder="Confirm password" formControlName="confirmedPassword" />
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+          </div>
+          <label class="checkbox field">
+            <input type="checkbox" class="is-normal" />
+            I agree to the <a href="#">terms and conditions</a>
+          </label>
+          <button class="button is-fullwidth is-primary">Register</button>
+        </form>
+        <div class="is-divider" data-content="OR"></div>
+      </div>
+
+      <div *ngIf="errorMessage !== '' ">
+        <div class="box has-background-danger-light">
+          {{errorMessage}}
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #confirmRegistration>
+  <div class="columns my-6 is-centered">
+    <div class="column is-narrow">
+      <div class="has-text-centered">
+        <h1 class="title">Please check your email in order to activate your account!</h1>
+      </div>
+    </div>
+  </div>
+</ng-template>

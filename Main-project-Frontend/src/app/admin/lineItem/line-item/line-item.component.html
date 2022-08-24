@@ -1,0 +1,47 @@
+<div class="column is-7 ml-6" id="account-list">
+    <div class="mt-5 mb-5 is-size-3 has-text-weight-bold">
+        <span>Orders</span>
+    </div>
+    <h1 class="title has-text-centered">Create Line Item</h1>
+    <div class="field is-horizontal is-left">
+        <div class="field-label is-normal">
+            <label class="label has-text-centered">Quantity</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <p class="control">
+                    <input class="input" type="quantity" placeholder="Quantity" [(ngModel)]="lineItem.quantity">
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="field is-horizontal is-left">
+        <div class="field-label is-normal">
+            <label class="label has-text-centered">Order ID</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <p class="control">
+                    <input class="input" type="id" placeholder="Id" [(ngModel)]="lineItem.order_id">
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="field is-horizontal is-left">
+        <div class="field-label is-normal">
+            <label class="label has-text-centered">Product ID</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <p class="control">
+                    <input class="input" type="id" placeholder="Id" [(ngModel)]="lineItem.product_id">
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="buttons is-centered mt-5">
+        <button class="button is-primary" (click)="addLineItem()">Add LineItem</button>
+        <button class="button is-info" (click)="updateLineItem()">Update LineItem</button>
+    </div>
+    <br>
+</div>

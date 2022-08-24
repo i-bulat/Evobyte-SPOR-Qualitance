@@ -1,0 +1,93 @@
+    <div class="column is-7 ml-6" id="account-list">
+        <div class="mt-5 mb-5 is-size-3 has-text-weight-bold">
+            <span>Orders</span>
+        </div>
+        <h1 class="title has-text-centered">Create Order</h1>
+        <div class="field is-horizontal is-left">
+            <div class="field-label is-normal">
+                <label class="label has-text-centered">Order Price</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <p class="control">
+                        <input class="input" type="totalPrice" placeholder="Total Price" [(ngModel)]="order.totalPrice">
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="field is-horizontal is-left">
+            <div class="field-label is-normal">
+                <label class="label has-text-centered">Order Status</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <p class="control">
+                        <input class="input" type="status" placeholder="Status" [(ngModel)]="order.status">
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="field is-horizontal is-left">
+            <div class="field-label is-normal">
+                <label class="label has-text-centered">User ID</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <p class="control">
+                        <input class="input" type="status" placeholder="Status" [(ngModel)]="user_id">
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="field is-horizontal is-left">
+            <div class="field-label is-normal">
+                <label class="label has-text-centered">Order ID</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <p class="control">
+                        <input class="input" type="id" placeholder="Id" [(ngModel)]="order.id">
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="buttons is-centered mt-5">
+            <button class="button is-primary" (click)="addOrder()">Add Order</button>
+            <button class="button is-info" (click)="updateOrder()">Update Order</button>
+        </div>
+        <br>
+        <section class="section">
+            <div class="columns">
+                <div class="column is-narrow is-offset-3">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Date Created</th>
+                                <th>Order Status</th>
+                                <th>Order Price</th>
+                                <th>Delete</th>
+                                <th>Line Items</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let order of orders">
+                            <tr>
+                                <th>{{order.id}}</th>
+                                <th>{{order.dateCreated}}</th>
+                                <th>{{order.status}}</th>
+                                <th>{{order.totalPrice}}</th>
+                                <button class="button is-danger is-small" (click)="deleteOrder(order.id!)">Delete
+                                    Order</button>
+                                <th *ngFor="let lineItem of order.lineItems">
+                                    {{lineItem.id}}
+                                </th>
+                                <th *ngIf="order.lineItems.length == 0">
+                                    No LineItems
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>

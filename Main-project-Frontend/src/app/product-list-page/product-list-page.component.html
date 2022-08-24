@@ -1,0 +1,53 @@
+<section>
+  <div class="container box">
+    <div class="products-menu has-background-primary-light box">
+      <div class="section">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+          <ul>
+            <li><a routerLink="/">Home</a></li>
+            <li class="is-active">
+              <a>{{ selectedCategoryName }}</a>
+            </li>
+            <li class="is-active">
+              <a aria-current="page">{{ selectedSubcategoryName }}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="columns">
+      <div class="column left-menu box is-one-fifth has-background-link-light">
+        <p *ngFor="let i of arrSubCategory" (click)="onSelectSubCategory(i.id)" [ngClass]="{
+            'has-text-centered has-text-weight-bold':
+              i.id == selectedSubCategoryId
+          }" class="menu-label hand-pointer">
+          {{ i.name }}
+        </p>
+      </div>
+
+      <div class="column box">
+        <div class="product-list ">
+          <div class="section">
+            <h1>{{ selectedSubcategoryName }} {{ totalProducts }} items</h1>
+          </div>
+
+          <div class="columns is-multiline is-centered">
+            <div class="column is-narrow" *ngFor="let i of arrProducts; let j = index">
+              <app-product-card [item]="arrProducts[j]"></app-product-card>
+            </div>
+          </div>
+        </div>
+        <nav class="pagination is-rounded is-centered" role="navigation" aria-label="pagination">
+          <ul class="pagination-list">
+            <li *ngFor="let i of arrPageNumbers; let j = index">
+              <a (click)="onSelectPage(i)" [ngClass]="{ 'is-current': i == currentPage }" class="pagination-link">
+                {{ i }}
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>

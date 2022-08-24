@@ -1,0 +1,53 @@
+<div class="columns my-6 is-mobile is-centered">
+  <div class="column is-narrow">
+    <div class="has-text-centered">
+      <a routerLink="/">
+        <img src="https://www.seekpng.com/png/full/428-4289671_logo-e-commerce-good-e-commerce-logo.png" alt="bucMag"
+          width="350" />
+      </a>
+    </div>
+    <div class="box">
+      <div class="field">
+        <a href="">
+          <i class="fa-solid fa-angle-left"></i>
+          <span> Go back</span>
+        </a>
+      </div>
+      <h1 class="title is-size-4">Login</h1>
+      <form [formGroup]="logInForm" (ngSubmit)="login()">
+        <div class="field">
+          <label class="label">Enter your username</label>
+          <div class="control">
+            <input class="input" type="username" placeholder="your username" formControlName="username" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control">
+            <input class="input" type="password" placeholder="password" formControlName="password" />
+          </div>
+        </div>
+        <div class="field">
+          <button class="button is-fullwidth is-primary">Sign in</button>
+        </div>
+      </form>
+      
+      <br>
+      <div class="field">
+        <a class="button is-danger is-fullwidth" href="http://localhost:8080/oauth2/authorization/google">Login with google</a>
+      </div>
+
+      <div class="control field">
+        <p class="has-text-centered">Forgot Password?</p>
+      </div>
+
+      <div class="control field">
+        <a routerLink="/register">
+          <p class="has-text-left">Register</p>
+        </a>
+      </div>
+      <div class="is-divider" data-content="OR"></div>
+    </div>
+  </div>
+</div>

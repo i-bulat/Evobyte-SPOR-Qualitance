@@ -1,0 +1,282 @@
+<div *ngFor="let topCategory of topCategories" class="container mlr-6 mb-4">
+    <div class="block">
+        <p class="has-text-centered is-size-3 is-clickable">
+            {{topCategory.name}}
+        </p>
+    </div>
+    <div class="columns is-multiline is-centered">
+        <div class="column is-narrow" *ngFor="let topProduct of topProducts">
+            <div *ngIf="topCategory.id === topProduct.category" class="card">
+                <div class="card-image">
+                    <figure class="image is-3by2">
+                        <img src="https://bulma.io/images/placeholders/256x256.png">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="content">
+                        <p>{{topProduct.name}}</p>
+                        <div class="content max-lines">{{ topProduct.description }}</div>
+                        <p>{{topProduct.price}}</p>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a href="#" class="card-footer-item">View</a>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mlr-6">
+    <div class="block">
+        <p class="has-text-centered is-size-3 is-clickable" routerLink="category">Telephones</p>
+    </div>
+    <section class="section">
+        <div class="container">
+            <!-- Start Carousel -->
+            <div id="carousel-demo" class="carousel">
+                <div class="item-1">
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-3by2">
+                                    <img src="https://bulma.io/images/placeholders/256x256.png">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <p>Title 1</p>
+                                    <p>Rating</p>
+                                    <p>Price</p>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <a href="#" class="card-footer-item">View</a>
+                                <a href="#" class="card-footer-item">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-2">
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-3by2">
+                                    <img src="https://bulma.io/images/placeholders/256x256.png">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <p>Title 2</p>
+                                    <p>Rating</p>
+                                    <p>Price</p>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <a href="#" class="card-footer-item">View</a>
+                                <a href="#" class="card-footer-item">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-3">
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-3by2">
+                                    <img src="https://bulma.io/images/placeholders/256x256.png">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <p>Title 3</p>
+                                    <p>Rating</p>
+                                    <p>Price</p>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <a href="#" class="card-footer-item">View</a>
+                                <a href="#" class="card-footer-item">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-4">
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-3by2">
+                                    <img src="https://bulma.io/images/placeholders/256x256.png">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <p>Title</p>
+                                    <p>Rating</p>
+                                    <p>Price</p>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <a href="#" class="card-footer-item">View</a>
+                                <a href="#" class="card-footer-item">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-5">
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-3by2">
+                                    <img src="https://bulma.io/images/placeholders/256x256.png">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <p>Title</p>
+                                    <p>Rating</p>
+                                    <p>Price</p>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <a href="#" class="card-footer-item">View</a>
+                                <a href="#" class="card-footer-item">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-6">
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-3by2">
+                                    <img src="https://bulma.io/images/placeholders/256x256.png">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <p>Title</p>
+                                    <p>Rating</p>
+                                    <p>Price</p>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <a href="#" class="card-footer-item">View</a>
+                                <a href="#" class="card-footer-item">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-7">
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-3by2">
+                                    <img src="https://bulma.io/images/placeholders/256x256.png">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <p>Title</p>
+                                    <p>Rating</p>
+                                    <p>Price</p>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <a href="#" class="card-footer-item">View</a>
+                                <a href="#" class="card-footer-item">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-8">
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-3by2">
+                                    <img src="https://bulma.io/images/placeholders/256x256.png">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <p>Title 8</p>
+                                    <p>Rating</p>
+                                    <p>Price</p>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <a href="#" class="card-footer-item">View</a>
+                                <a href="#" class="card-footer-item">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-9">
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-3by2">
+                                    <img src="https://bulma.io/images/placeholders/256x256.png">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <p>Title 9</p>
+                                    <p>Rating</p>
+                                    <p>Price</p>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <a href="#" class="card-footer-item">View</a>
+                                <a href="#" class="card-footer-item">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-10">
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-3by2">
+                                    <img src="https://bulma.io/images/placeholders/256x256.png">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <p>Title 10</p>
+                                    <p>Rating</p>
+                                    <p>Price</p>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <a href="#" class="card-footer-item">View</a>
+                                <a href="#" class="card-footer-item">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Carousel -->
+        </div>
+    </section>
+</div>

@@ -1,0 +1,87 @@
+<div class="content has-text-centered" *ngIf="products.length == 0">
+    <div class="container">
+
+        <h2 class="content has-text-centered">My Cart</h2>
+
+        <div class="container">
+
+            <h4>Your cart is empty!</h4>
+
+            <button routerLink="" button class="button is-primary">Shop Now</button>
+        </div>
+    </div>
+
+</div>
+
+<div class="container" *ngIf="products.length !=0">
+    <table class="table mx-auto">
+        <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of basketProducts">
+                <td>
+                    <a [title]="i.productName + ' details'" [routerLink]="['/products', i.productId]">
+                        {{ i.productName }}
+                    </a>
+                </td>
+                <td><img [src]="i.productImage"></td>
+                <td>{{i.productPrice | currency}}</td>
+                <td>
+                    <div class="select is-primary">
+                        <select (change)="'to be implemented'">
+                            <option value="1"> 1 </option>
+                            <option value="2"> 2 </option>
+                            <option value="3"> 3 </option>
+                            <option value="4"> 4 </option>
+                            <option value="5"> 5 </option>
+                        </select>
+                    </div>
+                <td>
+                    <!-- <input class="form-control"type="number" id="product.quantity" [(ngModel)]="product.quantity"> -->
+                    <button class="button is-danger" (click)="deleteFromBasket(i.id)"><i
+                            class="fas fa-trash-alt"></i>Remove</button>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="columns has-text-right">
+        <div class="column is-offset-9">
+            <button class="button is-danger" (click)="emptycart()">Empty Cart</button>
+        </div>
+        <div class="column">
+            <button class="button is-info" routerLink="/">Shop More</button>
+        </div>
+        <div class="column">
+            <button class="button is-primary" [routerLink]="'/cart/checkout'">Checkout</button>
+        </div>
+    </div>
+    <div class="content has-text-right">
+        <strong>Grand Total : ${{grandTotal}}</strong>
+    </div>
+</div>
+
+
+<div class="modal" [ngClass]="{'is-active': confirmingDelete !== undefined}">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Are you sure?</p>
+        </header>
+        <section class="modal-card-body">
+            <p>Are you sure you want to delete this product from the shopping cart?</p>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-danger" (click)="deleteProduct(confirmingDelete)">Delete Product</button>
+            <button class="button" (click)="confirmingDelete = undefined">Cancel</button>
+        </footer>
+    </div>
+</div>

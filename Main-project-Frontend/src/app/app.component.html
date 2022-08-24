@@ -1,0 +1,219 @@
+<!-- aici ar trebui sa pastram doar header, sub-toolbar si footer -->
+
+<div class="container">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand ml-1">
+      <a class="navbar-item">
+        <img src="../assets/images/computer.png" id="computer" routerLink="" />
+      </a>
+    </div>
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start"></div>
+      <div class="navbar-item">
+        <div class="control dropdown" [ngClass]="{ 'is-active': isFocused == true }">
+          <div class="dropdown-trigger">
+            <input class="input searchbar" (keyup.enter)="searchProducts()" [(ngModel)]="currentSearch"
+              (ngModelChange)="changedSearchInput()" (focus)="isFocused = true" (blur)="maybeLoseFocus()" type="text"
+              placeholder="Search..." />
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+              <div *ngFor="let suggestion of suggestions" (mouseenter)="canLoseFocus = false"
+                (mouseleave)="canLoseFocus = true">
+                <a [routerLink]="['search/', suggestion]" (click)="isFocused = false; currentSearch = suggestion"
+                  class="dropdown-item">
+                  {{ suggestion }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <ng-template [ngIf]="authenticationService.isAuthenticated() === false" [ngIfElse]="notFirst">
+                  <a class="button" (click)="logIn()" routerLink="register">Register</a>
+                  <a class="button" (click)="logIn()" routerLink="login">Log in</a>
+                </ng-template>
+                <ng-template #notFirst>
+                  <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                      Hello, {{authenticationService.loggedInUser.firstName}}!
+                    </a>
+
+                    <div class="navbar-dropdown">
+                      <a class="navbar-item" routerLink="user-profile">
+                        My Account
+                      </a>
+                      <a class="navbar-item" routerLink="address-details">
+                        My Addresses
+                      </a>
+                      <a class="navbar-item" routerLink="card-details">
+                        My Cards
+                      </a>
+                      <a class="navbar-item"> Order History </a>
+                      <a class="navbar-item"> Loyalty Program </a>
+                      <hr class="navbar-divider" />
+                      <a class="navbar-item" (click)="logOut()"> Log Out </a>
+                      <a class="navbar-item" routerLink="admin-home">
+                        Administrator
+                      </a>
+                    </div>
+                  </div>
+                  <div class="navbar-brand pl-5">
+                    <a class="navbar-item" routerLink="/shopping-cart">
+                      <i style="font-size: 30px;" class="fas fa-cart-plus"></i>
+                      <div style="font-size: 15px;">{{totalItem}}</div>
+                    </a>
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<nav class="navbar" id="sub-toolbar">
+  <div id="navbarMenu" class="navbar-menu">
+    <div class="navbar-start ml-6">
+      <div class="navbar-item ml-6 mr-6"></div>
+      <div class="navbar-item ml-5 mr-5"></div>
+      <a class="navbar-item has-text-weight-bold ml-6" routerLink="product-list"> Products </a>
+      <a class="navbar-item has-text-weight-bold ml-5">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link"> Categories </a>
+
+          <div class="navbar-dropdown">
+            <a class="navbar-item" *ngFor="let i of categories">
+              <a class="navbar-link is-arrowless" [routerLink]="['/categories', i.name]"> {{i.name}}
+              </a>
+            </a>
+          </div>
+        </div>
+      </a>
+
+      <a class="navbar-item has-text-weight-semibold"> Today's Offers </a>
+      <a class="navbar-item has-text-weight-semibold is-size-6">
+        Loyalty Program
+      </a>
+      <a class="navbar-item has-text-weight-semibold is-size-6"> Auctions </a>
+      <a class="navbar-item has-text-weight-semibold is-size-6"> Help </a>
+      <div class="navbar-end"></div>
+    </div>
+  </div>
+
+</nav>
+<!-- <div class="columns bt-0 ml-6 mr-6">
+      <div class="column is-3 is-offset-1" id="product-list">
+          <div class="mt-4">
+              <span class="icon">
+                  <i class="fa fa-mobile"></i>
+              </span>
+              <span>Laptop, Tablete & Telefoane</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<nav class="navbar" id="sub-toolbar">
+  <div id="navbarMenu" class="navbar-menu">
+    <div class="navbar-start ml-6">
+      <div class="navbar-item ml-6 mr-6"></div>
+      <div class="navbar-item ml-5 mr-5"></div>
+      <a class="navbar-item has-text-weight-bold ml-6" routerLink="product-list"> Products </a>
+      <a class="navbar-item has-text-weight-bold ml-5">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link"> Categories </a>
+
+          <div class="navbar-dropdown">
+            <a class="navbar-item" *ngFor="let i of categories">
+              <a class="navbar-link is-arrowless"
+              (click)="onCategoryClick(i.name)"
+              [routerLink]="['/categories', i.name]"
+              > {{ i.name }} </a>
+            </a>
+          </div>
+          <div class="mt-4">
+              <span class="icon">
+                  <i class="fa fa-television"></i>
+              </span>
+              <span>TV Audio-Video & Foto</span>
+          </div>
+          <div class="mt-4">
+              <span class="icon">
+                  <i class="fa fa-shopping-bag"></i>
+              </span>
+              <span>Bacanie</span>
+          </div>
+          <div class="mt-4">
+              <span class="icon">
+                  <i class="fa fa-gamepad"></i>
+              </span>
+              <span>Gaming, Carti & Birotica</span>
+          </div>
+      </div>
+  </div> -->
+
+<!-- <app-user-login></app-user-login> -->
+<!-- <app-user-profile></app-user-profile> -->
+<!-- <app-card-details></app-card-details> -->
+
+<router-outlet></router-outlet>
+
+<footer class="footer">
+  <nav class="level">
+    <!-- Left side -->
+    <div class="level-left">
+      <div class="level-item">
+        <p class="subtitle is-5">
+          <strong>Evobyte SPOR Qualitance</strong>
+        </p>
+      </div>
+    </div>
+    <!-- Right side -->
+    <div class="level-right">
+      <p class="level-item"><strong>Contacts</strong></p>
+    </div>
+  </nav>
+
+  <nav class="level">
+    <div class="level-left">
+      <div class="level-item">
+        <p class="subtitle is-5">
+          <strong>Terms</strong>
+        </p>
+      </div>
+      <div class="level-item">
+        <p class="subtitle is-5">
+          <strong>Privacy policy</strong>
+        </p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div class="level-item">
+        <p class="subtitle is-5">
+          <strong>© 2022 - Evobyte SPOR Qualitance, Inc. All Rights reserved.</strong>
+        </p>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="level-item">
+        <a href="https://www.facebook.com"><i class="fa-brands fa-facebook fa-xl"></i></a>
+      </div>
+      <div class="level-item">
+        <a href="https://www.twitter.com"><i class="fa-brands fa-twitter fa-xl"></i></a>
+      </div>
+      <div class="level-item">
+        <a href="https://www.instagram.com"><i class="fa-brands fa-instagram fa-xl"></i></a>
+      </div>
+      <div class="level-item">
+        <a href="https://www.youtube.com"><i class="fa-brands fa-youtube fa-xl"></i></a>
+      </div>
+    </div>
+  </nav>
+</footer>

@@ -1,0 +1,68 @@
+<div class="columns mt-6 mb-6">
+    <div class="column is-7 ml-6" id="account-list">
+        <div class="mt-5 mb-5 is-size-3 has-text-weight-bold">
+            <span>Create User</span>
+        </div>
+        <div class="container mt-6">
+            <form [formGroup]="productForm" (ngSubmit)="submitForm()" novalidate>
+                <div class="field is-horizontal is-left">
+                    <div class="field-label is-normal">
+                        <label class="label has-text-centered">First Name</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input class="input has-text-centered" type="text" placeholder="First Name"
+                                    formControlName="firstName">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal is-left">
+                    <div class="field-label is-normal">
+                        <label class="label has-text-centered">Last Name</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input class="input has-text-centered" type="text" placeholder="First Name"
+                                    formControlName="lastName">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal is-left">
+                    <div class="field-label is-normal">
+                        <label class="label has-text-centered">Email</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input class="input has-text-centered" type="email" placeholder="Email"
+                                    formControlName="email">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal is-left">
+                    <div class="field-label is-normal">
+                        <label class="label has-text-centered">Password</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input class="input has-text-centered" type="password" placeholder="Password"
+                                    formControlName="password">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="container has-text-centered mb-6">
+                    <button class="button is-link" type="submit">Submit</button>
+                    <button class="button is-link is-light" (click)="back($event)">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

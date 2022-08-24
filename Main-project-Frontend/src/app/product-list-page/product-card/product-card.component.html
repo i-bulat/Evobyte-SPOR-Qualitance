@@ -1,0 +1,43 @@
+<div class="box has-background-white">
+  <div class="card-image hand-pointer"
+  [routerLink]="['/products', item.id]">
+    <figure class="image is-4by3">
+      <img
+        [src]="item.imageUrl"
+        alt="Placeholder image"
+      />
+    </figure>
+  </div>
+  <div class="card-content hand-pointer"
+  [routerLink]="['/products', item.id]">
+    <div class="media">
+      <div class="media-content" 
+      >
+        <p class="title is-4">{{ item.name }}</p>
+      </div>
+    </div>
+    <div class="content max-lines">
+      {{ item.description }}
+    </div>
+  </div>
+    <nav class="level is-mobile">
+      <div class="level-left">
+        <p class="level-item is-size-3 has-text-primary has-text-weight-bold">
+          {{ item.price }} $
+        </p>
+      </div>
+      <div
+      (click)="addToCart(item.id, quantity)"
+      >
+        <a class="button is-primary"
+
+         >
+          <span class="icon">
+            <i class="fas fa-shopping-cart"></i>
+          </span>
+          <span>Add to cart</span>
+        </a>
+      </div>
+    </nav>
+
+</div>

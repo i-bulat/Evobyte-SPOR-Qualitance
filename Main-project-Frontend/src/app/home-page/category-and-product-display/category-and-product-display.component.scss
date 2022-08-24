@@ -1,0 +1,13 @@
+.container {
+    overflow: hidden;
+}
+
+.max-lines {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 220px;
+    line-height: 22px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}

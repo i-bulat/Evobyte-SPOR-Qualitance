@@ -1,0 +1,57 @@
+<!-- <i style="font-size: 30px;" class="fa-solid fa-star"></i>
+<i style="font-size: 30px;" class="fa-regular fa-star"></i>
+<i style="font-size: 30px;" class="fa-regular fa-star-half-stroke"></i> -->
+<div class="box is-1 has-text-centered">
+
+    <form [formGroup]="productForm" (ngSubmit)="submitForm()" novalidate>
+        <div class="form-group">
+            <ngb-rating formControlName="rating" [max]="5" [readonly]="false"></ngb-rating>
+
+            <pre>Review: <b>{{ productForm.get('rating')?.value }}</b></pre>
+
+        </div>
+        <br>
+        <br>
+        <div class="container mt-6">
+            <div class="form-group">
+                <div class="field is-horizontal is-left">
+                    <div class="field-label is-normal">
+                        <label class="label has-text-centered">Title Review</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input class="input" type="text" placeholder="Title Review" formControlName="title">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <div class="field is-horizontal is-left">
+                    <div class="field-label is-normal">
+                        <label class="label has-text-centered">Review</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <textarea class="textarea" placeholder="Review" formControlName="comment"></textarea>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-groupt">
+            <div class="container has-text-centered mb-6">
+                <button class="button is-link" type="submit">Submit</button>
+                <!-- [routerLink]="['products/:productId'] -->
+                <button class="button is-link is-light" (click)="back($event)">Cancel</button>
+            </div>
+        </div>
+    </form>
+
+
+</div>

@@ -1,0 +1,74 @@
+.button {
+    background-color: #D9D9D9;
+    // #eab676
+}
+
+.modal-card-title {
+    text-align: center;
+}
+
+// img {
+//     transform: scale(2);
+// }
+
+#computer {
+    transform: scale(2);
+}
+
+#sub-toolbar {
+    background-color: #D9D9D9;
+    z-index: 1 !important;
+}
+
+#box {
+    z-index: -2 !important;
+    background-color: #D9D9D9;
+}
+
+.searchbar {
+    width: 450px;
+}
+
+.navbar-link {
+    z-index: 100 !important;
+}
+
+#separator {
+    border-bottom: gray 1px solid;
+}
+
+#cancel {
+    transform: scale(0.75);
+}
+
+#icon-button {
+    background-color: white;
+}
+
+#facebook-button {
+    background-color: #314471;
+    color: white;
+}
+
+#github-button {
+    background-color: #6e5494;
+    color: white;
+}
+
+.fa-google {
+    background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+#product-list {
+    background-color: #D9D9D9;
+    border-radius: 5px;
+    margin-left: 250px;
+}
+
+.fa-mobile {
+    transform: scale(1.5);
+}

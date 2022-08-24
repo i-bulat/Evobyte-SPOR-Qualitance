@@ -1,0 +1,95 @@
+<!-- <div class="column is-7 ml-6" id="account-list">
+  <div class="mt-5 mb-5 is-size-3 has-text-weight-bold">
+    <span>Products</span>
+  </div>
+  <div class="mt-5 mb-5">
+    <button type="button" class="button is-success" routerLink="create">
+      Create new product
+    </button>
+  </div>
+    <div class="columns">
+      <div class="column is-narrow">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Image URL</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products">
+              <td>{{ product.id }}</td>
+              <td>{{ product.name }}</td>
+              <td>{{ product.description }}</td>
+              <td>{{ product.imageURL }}</td>
+              <td>{{ product.price }}</td>
+              <td>{{ product.quantity }}</td>
+              <td>
+                <button
+                  class="button is-primary"
+                  type="button"
+                  [routerLink]="['/admin-home/product/update', product.id]"
+                >
+                  Update
+                </button>
+                <button 
+                    class="button is-danger"
+                type="button" 
+                (click)="delete(product.id)">
+                  Remove
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+</div> -->
+
+
+<div class="content">
+  <h1>My Products</h1>
+  <button class="button is-link" routerLink='create'>Create new product</button>
+  <table class="table mx-auto" *ngIf="!isLoading; else Loading">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+
+        <th>Image</th>
+        <th>Price</th>
+
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{product.id}}</td>
+        <td>
+          <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]">
+            {{ product.name }}
+          </a>
+        </td>
+        <td>{{product.description}}</td>
+
+        <td><img [src]="product.imageUrl"></td>
+        <td>{{product.price}}</td>
+
+        <td>
+          <button class="button is-link" [routerLink]="['/admin-home/product/update', product.id]">Update</button>
+          <button class="button is-danger" (click)="delete(product.id)">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #Loading>
+    <progress class="progress is-small is-primary" max="100">15%</progress>
+  </ng-template>
+</div>

@@ -1,0 +1,131 @@
+<!-- Implementare cu Reactive Forms -->
+<div class="columns mt-6 mb-6">
+    <div class="column is-7 ml-6" id="account-list">
+        <div class="mt-5 mb-5 is-size-3 has-text-weight-bold">
+            <span>Product Categories</span>
+        </div>
+        <br>
+        <form [formGroup]="createCategoryForm" (ngSubmit)="addCategory(createCategoryForm.value)">
+            <h1 class="title">Create Order</h1>
+            <div class="field is-horizontal is-left">
+                <div class="field-label is-normal">
+                    <label class="label has-text-centered">Name</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input class="input has-text-centered" type="text" placeholder="Name"
+                                formControlName="name">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal is-left">
+                <div class="field-label is-normal">
+                    <label class="label has-text-centered">Description</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input class="input has-text-centered" type="text" placeholder="Description"
+                                formControlName="description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons is-centered mt-5">
+                <button class="button is-success">Add Category</button>
+            </div>
+        </form>
+        <br>
+        <form [formGroup]="deleteCategoryForm" (ngSubmit)="deleteCategory(deleteCategoryForm.value)">
+            <h1 class="title">Delete Category</h1>
+            <div class="field is-horizontal is-left">
+                <div class="field-label is-normal">
+                    <label class="label has-text-centered">ID</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input class="input has-text-centered" type="text" placeholder="ID" formControlName="id">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons is-centered mt-5">
+                <button class="button is-danger">Delete Category</button>
+            </div>
+        </form>
+        <br>
+        <form [formGroup]="updateCategoryForm"
+            (ngSubmit)="updateCategory(updateCategoryForm.value.id, updateCategoryForm.value)">
+            <h1 class="title">Update Category</h1>
+            <div class="field is-horizontal is-left">
+                <div class="field-label is-normal">
+                    <label class="label has-text-centered">Name</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input class="input has-text-centered" type="text" placeholder="Name"
+                                formControlName="name">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal is-left">
+                <div class="field-label is-normal">
+                    <label class="label has-text-centered">Description</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input class="input has-text-centered" type="text" placeholder="Description"
+                                formControlName="description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal is-left">
+                <div class="field-label is-normal">
+                    <label class="label has-text-centered">ID</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input class="input has-text-centered" type="text" placeholder="ID" formControlName="id">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="container has-text-centered mb-6">
+                <button class="button is-success">Update Category</button>
+            </div>
+        </form>
+        <section class="section">
+            <div class="columns is-centered">
+                <div class="column is-narrow">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let category of categories">
+                            <tr>
+                                <th>{{category.id}}</th>
+                                <th>{{category.name}}</th>
+                                <th>{{category.description}}</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <div class="container has-text-centered mb-6">
+            <button class="button" (click)="getCategories()">Get All Categories</button>
+        </div>
+    </div>
+</div>

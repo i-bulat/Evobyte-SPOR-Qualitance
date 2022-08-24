@@ -1,0 +1,31 @@
+<div class="box container is-max-desktop">
+  <div class="block delivery-details">
+    <div class="block columns">
+      <div class="column">
+        <ng-credit-card
+          [name]="cardName.value"
+          [number]="cardNumber.value"
+          [cvc]="cardCvc.value"
+          [expiry]="cardExpiry.value"
+        ></ng-credit-card>
+      </div>
+      <div class="column">
+        <form [formGroup]="cardPaymentForm" (ngSubmit)="payWithCard()">
+          <label for="Name">Name</label>
+          <input type="text" class="input" id="Name" placeholder="Name"  formControlName="cardName" #cardName />
+          <label for="Number">Number</label>
+          <input type="text" class="input" id="Number" placeholder="Number" formControlName="cardNumber" #cardNumber/>
+          <label for="CVC">CVC</label>
+          <input type="text" class="input" id="CVC" placeholder="CVC" formControlName="cardCvc" #cardCvc/>
+          <label for="Expiry">Expiry</label>
+          <input type="text" class="input" id="Expiry" placeholder="Expiry" formControlName="cardExpiry" #cardExpiry />
+        </form>
+      </div>
+    </div>
+
+    <div class="block">
+      <button class="button is-primary is-fullwidth"
+      (click) = payWithCard()>Pay</button>
+    </div>
+  </div>
+</div>

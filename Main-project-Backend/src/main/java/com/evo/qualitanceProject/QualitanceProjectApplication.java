@@ -1,0 +1,30 @@
+package com.evo.qualitanceProject;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@SpringBootApplication
+public class QualitanceProjectApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(QualitanceProjectApplication.class, args);
+    }
+
+    @CrossOrigin
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost:4200", "http://localhost:8080","https://localhost:8080")
+                        .allowedMethods("GET", "PUT", "POST", "DELETE");
+            }
+        };
+    }
+
+}
